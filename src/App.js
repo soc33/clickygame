@@ -1,25 +1,28 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PictureButton from "./components/PictureButton";
+import Wrapper from "./components/Wrapper";
+import pictures from "./pictures.json";
+import Navbar from "./components/BootstrapComps/navbar";
+import Counter from "./components/Counter/Counter";
+import "./App.css";
 
 class App extends Component {
+  state = { pictures };
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+      < Navbar />
+      <Counter />
+      <Wrapper>
+        {this.state.pictures.map(picture => (
+          <PictureButton
+            id={picture.id}
+            key={picture.id}
+            name={picture.name}
+            image={picture.image}
+          />
+        ))}
+      </Wrapper>
       </div>
     );
   }
