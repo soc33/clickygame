@@ -1,15 +1,15 @@
 import React from 'react';
 
-function Navbar() {
+function Navbar (props) {
   return (
-    <nav className="navbar navbar-light bg-light display-4"> Clicky Game 
-      <a className="navbar-brand" href="https://getbootstrap.com/">
-        <img src="/docs/4.3/assets/brand/bootstrap-solid.svg" width="30" height="30" className="d-inline-block align-top" alt=""/>
-          Powered By Bootstrap
-      </a>
+    <nav className="navbar navbar-light bg-light display-4"> {props.children} 
+      <div className="scores">
+              Score: {props.score} | Highscore: {props.highscore}
+          </div>
     </nav>
       );
     }
+
   
   
 export default Navbar;
